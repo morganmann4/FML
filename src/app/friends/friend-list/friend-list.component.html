@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-primary">Add New Friend</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <a href="#" class="list-group-item clearfix" 
+        *ngFor="let friend of friends;let i = index">
+            <div class="pull-left">
+                <h4 class="list-group-item-heading"> {{ friend.name }}</h4>
+                <p class="list-group-item-text">{{ friend.idea }}</p>
+            </div>
+        </a>
+    </div>
+</div>
+<!-- <app-friend-add></app-friend-add> -->
