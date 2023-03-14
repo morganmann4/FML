@@ -10,6 +10,9 @@ import { FriendListComponent } from './friends/friend-list/friend-list.component
 import { FriendAddComponent } from './friends/friend-list/friend-add/friend-add.component';
 import { IdeaEditComponent } from './ideas/idea-edit/idea-edit.component';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
+import { IdeaModalComponent } from './ideas/idea-edit/idea-modal/idea-modal.component';
+import { FriendService } from './friends/friend.service';
+import { IdeaService } from './ideas/idea.service';
 
 @NgModule({
   declarations: [
@@ -19,15 +22,17 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
     IdeasComponent,
     FriendListComponent,
     FriendAddComponent,
-    IdeaEditComponent
+    IdeaEditComponent,
+    IdeaModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ModalModule,
+    ModalModule.forRoot(),
     
   ],
-  providers: [BsModalService],
-  bootstrap: [AppComponent]
+  providers: [BsModalService, FriendService, IdeaService],
+  bootstrap: [AppComponent],
+  entryComponents: [IdeaEditComponent]
 })
 export class AppModule { }

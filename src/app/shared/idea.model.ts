@@ -1,3 +1,3 @@
 export class Idea{
-    constructor(public name: string, public catergory: string){}
+    constructor(public activity: string, public category: string){}
 }
