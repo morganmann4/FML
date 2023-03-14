@@ -13,6 +13,8 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { IdeaModalComponent } from './ideas/idea-edit/idea-modal/idea-modal.component';
 import { FriendService } from './friends/friend.service';
 import { IdeaService } from './ideas/idea.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { IdeaService } from './ideas/idea.service';
     BrowserModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [BsModalService, FriendService, IdeaService],
