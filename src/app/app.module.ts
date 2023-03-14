@@ -32,7 +32,6 @@ import { IdeaService } from './ideas/idea.service';
     
   ],
   providers: [BsModalService, FriendService, IdeaService],
-  bootstrap: [AppComponent],
-  entryComponents: [IdeaEditComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

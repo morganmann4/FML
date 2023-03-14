@@ -1,5 +1,10 @@
-<div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Open modal</button>
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">×</span>
+        </button>
     </div>
     <div class="modal-body">
         <div class="row">
@@ -16,12 +21,12 @@
                             required>
                         </div>
                         <div class="col-sm-7 form-group">
-                            <label for="amount">Idea</label>
+                            <label for="activity">Idea</label>
                             <input 
-                            type="number" 
-                            id="amount" 
+                            type="text" 
+                            id="activity" 
                             class="form-control"
-                            name="amount"
+                            name="activity"
                             required>
                         </div>
                     </div>
@@ -36,4 +41,5 @@
             </div>
         </div>
     </div>
+</ng-template>
 
