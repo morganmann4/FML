@@ -97,6 +97,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "FML:build:production",
+            "firebaseProject": "fmll-7ca84",
+            "firebaseHostingSite": "fmll-7ca84"
+          }
         }
       }
     }
