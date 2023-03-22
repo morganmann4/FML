@@ -28,4 +28,5 @@ export class FriendAddComponent implements OnInit {
       this.friendService.addFriend(newFriend);
       form.reset();
     }
+
 }

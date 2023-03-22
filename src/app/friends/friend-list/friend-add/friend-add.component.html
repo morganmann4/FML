@@ -1,51 +1,56 @@
 <button type="button" class="btn btn-primary" (click)="openModal(template)">Add Friend</button>
 
 <ng-template #template>
-   <div class="modal-header">
-      <h4 class="modal-title pull-left">Modal</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-         <span aria-hidden="true">×</span>
-      </button>
-   </div>
-   <div class="modal-body">
-      <div class="row">
-         <div class="col-xs-12">
-             <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-                 <div class="row">
-                     <div class="col-sm-5 form-group">
-                         <label for="friend">Friend</label>
-                         <input 
-                         type="text" 
-                         id="friend" 
-                         class="form-control"
-                         name="name"
-                         ngModel
-                         required>
-                     </div>
-                     <div class="col-sm-7 form-group">
-                         <label for="idea">Idea</label>
-                         <input 
-                         type="idea" 
-                         id="activity" 
-                         class="form-control"
-                         name="idea"
-                         ngModel
-                         required>
-                     </div>
-                 </div>
-                 <div class="row">
-                     <div class="col-xs-12">
-                         <button class="btn btn-success" type="submit" (click)="modalRef.hide()" >Add</button>
-                         <button class="btn btn-primary" type="button">Clear</button>
-                     </div>
-                 </div>
-             </form>
-         </div>
+  <div class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+           <span aria-hidden="true">×</span>
+        </button>
      </div>
-   </div>
-   <div class="modal-footer">
-      <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
-   </div>
+     <div class="modal-body">
+        <div class="row">
+           <div class="col-xs-12">
+               <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                   <div class="row">
+                       <div class="col-sm-5 form-group">
+                           <label for="friend">Friend</label>
+                           <input 
+                           type="text" 
+                           id="friend" 
+                           class="form-control"
+                           name="name"
+                           ngModel
+                           required>
+                       </div>
+                       <div class="col-sm-7 form-group">
+                           <label for="idea">Idea</label>
+                           <input 
+                           type="idea" 
+                           id="activity" 
+                           class="form-control"
+                           name="idea"
+                           ngModel
+                           required>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-xs-12">
+                           <button class="btn btn-success" type="submit" (click)="modalRef.hide()" >Add</button>
+                           <button class="btn btn-primary" type="button" (click)="modalRef.hide()">Clear</button>
+                       </div>
+                   </div>
+               </form>
+           </div>
+       </div>
+     </div>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+     </div>
+    </div>
+  </div>
+
 </ng-template>
 
 <!-- 
