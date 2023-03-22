@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "ideas-267bc": {
+      "hosting": {
+        "FML": [
+          "ideas-267bc"
+        ]
+      }
+    },
+    "fmll-7ca84": {
+      "hosting": {
+        "FML": [
+          "fmll-7ca84"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fmll-7ca84"
+  }
+}

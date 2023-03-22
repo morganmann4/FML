@@ -13,6 +13,16 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { IdeaModalComponent } from './ideas/idea-edit/idea-modal/idea-modal.component';
 import { FriendService } from './friends/friend.service';
 import { IdeaService } from './ideas/idea.service';
+import { DataStorageService } from './shared/data-storage.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FriendEditComponent } from './friends/friend-list/friend-edit/friend-edit.component';
+
+import { HttpClientModule } from '@angular/common/http'
+import { environment } from 'src/environments/environment';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+
 
 @NgModule({
   declarations: [
@@ -23,15 +33,23 @@ import { IdeaService } from './ideas/idea.service';
     FriendListComponent,
     FriendAddComponent,
     IdeaEditComponent,
-    IdeaModalComponent
+    IdeaModalComponent,
+    FriendEditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    
     
   ],
-  providers: [BsModalService, FriendService, IdeaService],
+  providers: [BsModalService, FriendService, IdeaService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

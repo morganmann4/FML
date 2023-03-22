@@ -1,18 +1,101 @@
 <div class="row">
     <div class="col-xs-12">
-        <button class="btn btn-primary">Add New Friend</button>
+        <app-friend-add></app-friend-add>
     </div>
 </div>
 <hr>
 <div class="row">
-    <div class="col-xs-12">
-        <a href="#" class="list-group-item clearfix" 
-        *ngFor="let friend of friends;let i = index">
+    <div class="col-xs-10">
+        <a style="cursor: pointer;" class="list-group-item clearfix"
+        *ngFor="let friend of friends;let i = index" (click)="onEditItem(i, friendEditModal)">
             <div class="pull-left">
                 <h4 class="list-group-item-heading"> {{ friend.name }}</h4>
                 <p class="list-group-item-text">{{ friend.idea }}</p>
             </div>
+            <div class="pull-right">
+                <button class="btn btn-success">Edit</button>
+            </div>
         </a>
     </div>
 </div>
-<app-friend-add></app-friend-add>
+
+<!-- Friend Edit Modal -->
+<ng-template #friendEditModal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-primary-title">Edit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body centered">
+            <div class="row">
+               <div class="col-xs-12">
+                   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                       <div class="row">
+                           <div class="col-sm-5 form-group">
+                               <input 
+                               type="text" 
+                               id="name" 
+                               class="form-control"
+                               name="name"
+                               ngModel
+                               required>
+                           </div>
+                           <div class="col-sm-7 form-group">
+                               <input 
+                               type="text" 
+                               id="idea" 
+                               class="form-control"
+                               name="idea"
+                               ngModel
+                               required>
+                           </div>
+                       </div>
+                       <div class="row">
+                           <div class="col-xs-12">
+                               <button class="btn btn-success" type="submit" (click)="modalRef.hide()" >Update</button>
+                               <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#deleteModal" (click)="openNestedEditModal(friendDeleteModal)">Delete</button> 
+                           </div>
+                       </div>
+                   </form>
+               </div>
+         </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+     </div>
+  </ng-template>
+ 
+  <!-- Nested delete modal-->
+  <ng-template #friendDeleteModal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-primary-title">Are you sure you want to delete?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="nestedModalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="deleteFriend()">Yes</button>
+     </div>
+</ng-template>
+
+
+<!-- <div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

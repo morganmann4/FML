@@ -1,0 +1,10 @@
+.modal.fade .modal-dialog {
+    transform: translate(0,0%)!important;
+}
+
+
+.modal.fade {
+    opacity: 3!important;
+}
+
+

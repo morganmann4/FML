@@ -15,6 +15,11 @@ export class IdeasComponent implements OnInit {
 
   ngOnInit(): void {
     this.ideas = this.ideaService.getIdeas();
+
+    this.ideaService.ideasChanged.subscribe((ideas: Idea[]) => 
+    {
+      this.ideas = ideas;
+    })
   }
 
 
